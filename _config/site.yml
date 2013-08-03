@@ -90,4 +90,7 @@ profiles:
     base_url: http://example.jboss.org
     wget:
       enabled: false
+    deploy:
+      host: github_pages
+      branch: gh-pages
 

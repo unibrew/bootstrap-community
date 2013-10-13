@@ -110,7 +110,7 @@ task :travis do
     system 'bundle exec awestruct -P production -g'
     next
   end
-
+  puts ENV['TRAVIS_BRANCH']
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
   deploy_branch = 'gh-pages'
   system "git remote set-url --push origin #{repo}"
@@ -218,7 +218,7 @@ end
 
 # Execute Awestruct
 def run_awestruct(args)
-  system "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}" 
+  system "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
 end
 
 # A cross-platform means of finding an executable in the $PATH.

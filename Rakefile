@@ -110,7 +110,21 @@ task :travis do
     system 'bundle exec awestruct -P production -g'
     next
   end
-  puts ENV['TRAVIS_BRANCH']
+
+  if ENV['TRAVIS_BRANCH'].to_s.scan(/^production$/) > 0
+    puts 'Building production branch version.'
+
+  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^staging$/) > 0
+    puts 'Building staging branch version.'
+
+  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/) > 0
+    puts 'Building master branch version.'
+
+  else
+    puts ENV['TRAVIS_BRANCH'].to_s + 'branch is not configured for Travis builds - skipping.'
+    next
+  end
+
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
   deploy_branch = 'gh-pages'
   system "git remote set-url --push origin #{repo}"

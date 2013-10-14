@@ -111,17 +111,17 @@ task :travis do
     next
   end
 
-  if ENV['TRAVIS_BRANCH'].to_s.scan(/^production$/) > 0
+  if ENV['TRAVIS_BRANCH'].to_s.scan(/^production$/).length > 0
     puts 'Building production branch version.'
 
-  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^staging$/) > 0
+  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^staging$/).length > 0
     puts 'Building staging branch version.'
 
-  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/) > 0
+  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/).length > 0
     puts 'Building master branch version.'
 
   else
-    puts ENV['TRAVIS_BRANCH'].to_s + 'branch is not configured for Travis builds - skipping.'
+    puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next
   end
 

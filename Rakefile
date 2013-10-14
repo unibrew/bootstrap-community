@@ -111,16 +111,20 @@ task :travis do
     next
   end
 
+  profile = 'development'
   deploy_branch = 'gh-pages'
   if ENV['TRAVIS_BRANCH'].to_s.scan(/^production$/).length > 0
     puts 'Building production branch version.'
     deploy_branch = 'gh-production'
+    profile='production'
   elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^staging$/).length > 0
     puts 'Building staging branch version.'
     deploy_branch = 'gh-staging'
+    profile='staging'
   elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/).length > 0
     puts 'Building master branch version.'
     deploy_branch = 'gh-develoment'
+    profile='development'
   else
     puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next
@@ -137,7 +141,7 @@ task :travis do
     f.write("https://#{ENV['GH_TOKEN']}:@github.com")
   end
   system "git branch #{deploy_branch} origin/#{deploy_branch}"
-  system 'bundle exec awestruct -P production -g --deploy'
+  system 'bundle exec awestruct -P #{profile} -g --deploy'
   File.delete '.git/credentials'
 end
 

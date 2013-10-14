@@ -3,7 +3,8 @@ rvm:
   - 1.9.3
 branches:
   only:
-    - master
+    - staging
+    - production
 script: rake travis
 env:
   global:

@@ -111,22 +111,22 @@ task :travis do
     next
   end
 
+  deploy_branch = 'gh-pages'
   if ENV['TRAVIS_BRANCH'].to_s.scan(/^production$/).length > 0
     puts 'Building production branch version.'
-
+    deploy_branch = 'gh-production'
   elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^staging$/).length > 0
     puts 'Building staging branch version.'
-
+    deploy_branch = 'gh-staging'
   elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/).length > 0
     puts 'Building master branch version.'
-
+    deploy_branch = 'gh-develoment'
   else
     puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next
   end
 
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
-  deploy_branch = 'gh-pages'
   system "git remote set-url --push origin #{repo}"
   system "git remote set-branches --add origin #{deploy_branch}"
   system 'git fetch -q'

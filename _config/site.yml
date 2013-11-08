@@ -78,7 +78,8 @@ profiles:
       enabled: false
     deploy:
       host: github_pages
-      branch: gh-staging
+      branch: master
+      repository: deployment
   production:
     minified: .min
     css_minifier: enabled

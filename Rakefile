@@ -102,7 +102,7 @@ task :push do
   system 'git push origin master'
 end
 
-desc 'Generate site from Travis CI and publish site to GitHub Pages'
+desc 'Generate site from Travis CI and publish site.'
 task :travis do
   # if this is a pull request, do a simple build of the site and stop
   if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0

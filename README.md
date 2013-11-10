@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Introduction
 ============
 The aim of this repository is to provide a template for the creation of new JBoss Community projects using [Awestruct](http://awestruct.org) and [Bootstrap](http://twitter.github.com/bootstrap). These are projects created and led by [Red Hat](http://www.redhat.com) who own the associated trademarks. To avoid unnecessary complexity and satisfy legal requirements users are kindly asked to observe the following:
@@ -55,3 +56,7 @@ Once you're happy with your website in development mode update the `profiles: st
 7. Publish the website
 ----------------------
 If everyone is happy with staging then update the `profiles: production: base_url:` property in *_config/site.yml* to point to your production domain and run the `bundle exec awestruct -P production` command to produce a version that can be uploaded for the public to view.
+=======
+test-community.org
+==================
+>>>>>>> e780f9cc960538d8bec0c221e08d2be05febffed

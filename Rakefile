@@ -129,6 +129,9 @@ task :travis do
     puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next
   end
+  
+  puts ENV.to_s
+  puts ENV['deploy_repository'].to_s
 
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
   system "git remote set-url --push origin #{repo}"

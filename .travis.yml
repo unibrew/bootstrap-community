@@ -9,3 +9,5 @@ script: rake travis
 env:
   global:
     - secure: "LYMPw/t5eAD2f9EE/MHVk2xEZyIwTvaDOnOSsuIlRL33KcyvSAi5j0t6+hETZhDxi4iXtXiVlPa8TL/snyLZ3VRnYz2tyH1WvJllIesUcOhgNWoW3a8Ixm2/UYy9TTLl8x+MERImZnjiYywK7/aWsb25Cc+gP/xHm0boMaK/syQ="
+  deploy_repository: git@github.com:unibrew/test-community.org.git
+  

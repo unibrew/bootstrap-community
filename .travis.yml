@@ -12,5 +12,6 @@ env:
 before_script:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 before_install:
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - git remote add deployment git@github.com:unibrew/test-community.org.git
   - git fetch deployment gh-staging

@@ -12,6 +12,5 @@ env:
 before_install:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - git remote add deployment https://github.com/unibrew/test-community.org.git
-  - git fetch deployment gh-staging
+  - git fetch deployment
   - git branch -a
-  - git pull

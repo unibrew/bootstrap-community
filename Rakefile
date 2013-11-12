@@ -143,7 +143,9 @@ task :travis do
   File.open('.git/credentials', 'w') do |f|
     f.write("https://#{ENV['GH_TOKEN']}:@github.com")
   end
-  system "git branch #{deploy_branch} origin/#{deploy_branch}"
+  system "git checkout #{deploy_branch}"
+  system "git checkout #{profile}"
+  #system "git branch #{deploy_branch} origin/#{deploy_branch}"
   system "bundle exec awestruct -P #{profile} -g --deploy"
   File.delete '.git/credentials'
 end

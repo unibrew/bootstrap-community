@@ -145,6 +145,7 @@ task :travis do
   end
   system "git checkout #{deploy_branch}"
   system "git checkout #{profile}"
+  sleep 5
   #system "git branch #{deploy_branch} origin/#{deploy_branch}"
   system "bundle exec awestruct -P #{profile} -g --deploy"
   File.delete '.git/credentials'

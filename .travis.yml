@@ -12,5 +12,5 @@ env:
     - projectId: "test"
 before_install:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - git remote add -f deployment https://github.com/unibrew/test-community.org.git
+  - git remote add -f deployment git@github.com:unibrew/test-community.org.git
   - git branch -a

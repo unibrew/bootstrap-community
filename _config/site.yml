@@ -78,7 +78,7 @@ profiles:
       enabled: false
     deploy:
       host: github_pages
-      branch: gh-staging
+      branch: test-staging
       repository: deployment
   production:
     minified: .min
@@ -96,5 +96,5 @@ profiles:
       enabled: false
     deploy:
       host: github_pages
-      branch: gh-production
+      branch: test-production
 

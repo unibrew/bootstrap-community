@@ -142,7 +142,7 @@ task :travis do
     f.write("https://#{ENV['GH_TOKEN']}:@github.com")
   end
   system 'git remote add -f deployment https://github.com/unibrew/test-community.org.git'
-  system "git checkout #{deploy_branch}"
+  system "git checkout --track deployment/#{deploy_branch}"
   system "git checkout #{profile}"
   system "git remote -v"
   sleep 5

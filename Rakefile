@@ -137,7 +137,7 @@ task :travis do
   File.open('.git/credentials', 'w') do |f|
     f.write("https://#{ENV['GH_TOKEN']}:@github.com")
   end
-  system 'git remote add -f deployment https://github.com/unibrew/test-community.org.git'
+  system 'git remote add -f -t #{deploy_branch} deployment https://github.com/unibrew/test-community.org.git'
   system "git checkout --track deployment/#{deploy_branch}"
   system "git checkout #{profile}"
   system "git remote -v"

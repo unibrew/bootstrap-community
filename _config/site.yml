@@ -78,7 +78,7 @@ profiles:
       enabled: false
     deploy:
       host: github_pages
-      branch: test-staging
+      branch: vova-staging
       repository: deployment
   production:
     minified: .min
@@ -96,6 +96,6 @@ profiles:
       enabled: false
     deploy:
       host: github_pages
-      branch: test-production
+      branch: vova-production
       repository: deployment
 

@@ -9,8 +9,7 @@ script: rake travis
 env:
   global:
     - secure: "LYMPw/t5eAD2f9EE/MHVk2xEZyIwTvaDOnOSsuIlRL33KcyvSAi5j0t6+hETZhDxi4iXtXiVlPa8TL/snyLZ3VRnYz2tyH1WvJllIesUcOhgNWoW3a8Ixm2/UYy9TTLl8x+MERImZnjiYywK7/aWsb25Cc+gP/xHm0boMaK/syQ="
-    - test: "test1"
-  test: "test2"
+    - projectId: "test"
 before_install:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - git remote add -f deployment https://github.com/unibrew/test-community.org.git

@@ -112,23 +112,24 @@ task :travis do
   end
 
   profile = 'development'
-  deploy_branch = 'gh-pages'
+  deploy_branch = ENV['projectId'] + '-development'
   if ENV['TRAVIS_BRANCH'].to_s.scan(/^production$/).length > 0
     puts 'Building production branch version.'
-    deploy_branch = 'gh-production'
+    deploy_branch = ENV['projectId'] + '-production'
     profile='production'
   elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^staging$/).length > 0
     puts 'Building staging branch version.'
-    deploy_branch = 'gh-staging'
+    deploy_branch = ENV['projectId'] + '-staging'
     profile='staging'
   elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/).length > 0
     puts 'Building master branch version.'
-    deploy_branch = 'gh-develoment'
+    deploy_branch = ENV['projectId'] + '-develoment'
     profile='development'
   else
     puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next
   end
+  # ENV.each {|x| puts "VAR: "+x.to_s }
 
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
   system "git remote set-url --push origin #{repo}"
@@ -140,7 +141,12 @@ task :travis do
   File.open('.git/credentials', 'w') do |f|
     f.write("https://#{ENV['GH_TOKEN']}:@github.com")
   end
-  system "git branch #{deploy_branch} origin/#{deploy_branch}"
+  system 'git remote add -f deployment https://github.com/unibrew/test-community.org.git'
+  system "git checkout --track deployment/#{deploy_branch}"
+  system "git checkout #{profile}"
+  system "git remote -v"
+  sleep 5
+  #system "git branch #{deploy_branch} origin/#{deploy_branch}"
   system "bundle exec awestruct -P #{profile} -g --deploy"
   File.delete '.git/credentials'
 end

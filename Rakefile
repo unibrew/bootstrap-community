@@ -129,7 +129,7 @@ task :travis do
     puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next
   end
-  a.each {|x| puts "VAR: "+x.to_s }
+  ENV.each {|x| puts "VAR: "+x.to_s }
   puts ENV['deploy_repository'].to_s
 
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')

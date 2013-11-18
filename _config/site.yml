@@ -97,4 +97,5 @@ profiles:
     deploy:
       host: github_pages
       branch: test-production
+      repository: deployment
 

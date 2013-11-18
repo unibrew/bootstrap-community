@@ -111,20 +111,16 @@ task :travis do
     next
   end
 
-  profile = 'development'
-  deploy_branch = ENV['projectId'] + '-development'
+  profile = 'staging'
+  deploy_branch = ENV['projectId'] + '-staging'
   if ENV['TRAVIS_BRANCH'].to_s.scan(/^production$/).length > 0
     puts 'Building production branch version.'
     deploy_branch = ENV['projectId'] + '-production'
     profile='production'
-  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^staging$/).length > 0
-    puts 'Building staging branch version.'
+  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/).length > 0
+    puts 'Building staging(master) branch version.'
     deploy_branch = ENV['projectId'] + '-staging'
     profile='staging'
-  elsif ENV['TRAVIS_BRANCH'].to_s.scan(/^master$/).length > 0
-    puts 'Building master branch version.'
-    deploy_branch = ENV['projectId'] + '-develoment'
-    profile='development'
   else
     puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next

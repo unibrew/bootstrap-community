@@ -144,7 +144,7 @@ task :travis do
   system "git remote add -f -t #{deploy_branch} deployment ENV['deployment_repository_url']"
   system "git checkout --track deployment/#{deploy_branch}"
   system "git checkout #{ENV['TRAVIS_BRANCH'].to_s}"
-
+  sleep 5
 
   system "bundle exec awestruct -P #{profile} -g --deploy"
   File.delete '.git/credentials'

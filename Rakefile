@@ -127,8 +127,8 @@ task :travis do
     puts ENV['TRAVIS_BRANCH'].to_s + ' branch is not configured for Travis builds - skipping.'
     next
   end
-  #ENV.each {|x| puts "VAR: "+x.to_s }
-
+  
+  # Repositories configuration
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
   system "git remote set-url --push origin #{repo}"
   system "git remote set-branches --add origin #{deploy_branch}"
@@ -137,7 +137,7 @@ task :travis do
   system "git config user.email '#{ENV['GIT_EMAIL']}'"
   system 'git config credential.helper "store --file=.git/credentials"'
   File.open('.git/credentials', 'w') do |f|
-    f.write("https://#{ENV['GH_TOKEN']}:@github.com")
+    f.write("https://#{ENV['GIT_LOGIN']}:#{ENV['GIT_PASSWORD']}@github.com")
   end
 
   # Here we hook remote repository for deployment.
@@ -145,6 +145,7 @@ task :travis do
   system "git checkout --track deployment/#{deploy_branch}"
   system "git checkout #{ENV['TRAVIS_BRANCH'].to_s}"
 
+  # Build and deploy
   system "bundle exec awestruct -P #{profile} -g --deploy"
   File.delete '.git/credentials'
 end

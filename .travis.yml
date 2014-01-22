@@ -8,6 +8,6 @@ branches:
 script: rake travis
 env:
   global:
-    - secure: "LYMPw/t5eAD2f9EE/MHVk2xEZyIwTvaDOnOSsuIlRL33KcyvSAi5j0t6+hETZhDxi4iXtXiVlPa8TL/snyLZ3VRnYz2tyH1WvJllIesUcOhgNWoW3a8Ixm2/UYy9TTLl8x+MERImZnjiYywK7/aWsb25Cc+gP/xHm0boMaK/syQ="
+    - secure: "iD47aQ96JvBhmxOoRjwYBDbEWOQw9i4vx46AkD91WKoVr+46s4XGackGXYZKePI8lM2Uw/fEI3Pg/s9dSlc553I4VJi6+3YGlGTdtiuFeOiLR8F28qgJxNaSHM8sH5M5GDCzPHYtkWd3teO5wlwX4gSiYJP5LYzGTYHnEL1mGxA="
     - projectId: "vova"
     - deployment_repository_url: https://github.com/unibrew/test-community.org.git

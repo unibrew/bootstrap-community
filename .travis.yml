@@ -1,6 +1,7 @@
 before_script:
   - rsync --version
-  - ls -al ~
+  - echo -e "\nalias rsync='rsync --protocol=28'" >> ~/.bashrc
+  - cat ~/.bashrc
   
 language: ruby
 rvm:

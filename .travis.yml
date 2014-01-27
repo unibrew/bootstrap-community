@@ -1,5 +1,6 @@
 before_script:
   - rsync --version
+  - ls -al .
   
 language: ruby
 rvm:

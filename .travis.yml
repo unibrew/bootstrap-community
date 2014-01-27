@@ -6,7 +6,7 @@ before_install:
   #  - sudo echo -e "#!/bin/bash\nrsync --protocol=29" >> rsync
   #  - sudo chmod +x rsync
   #  - sudo mv rsync /usr/bin/rsync
-  - apt-get install rsync=2.6.9
+  - sudo apt-get install rsync=2.6.9
   - rsync --version
   
 language: ruby

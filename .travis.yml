@@ -7,6 +7,8 @@ before_install:
   #  - sudo chmod +x rsync
   #  - sudo mv rsync /usr/bin/rsync
   - sudo apt-cache search rsync
+  - sudo apt-cache show rsync
+  - sudo apt-cache showpkg rsync
   - sudo apt-get install rsync=2.6.9
   - rsync --version
   

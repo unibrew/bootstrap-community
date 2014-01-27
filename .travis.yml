@@ -2,7 +2,7 @@ before_script:
   - rsync --version
   - echo -e "\nalias rsync='rsync --protocol=28'" >> ~/.bashrc
   - cat ~/.bashrc
-  - mv /usr/bin/rsync /usr/bin/rsync.orig
+  - sudo mv /usr/bin/rsync /usr/bin/rsync.orig
   - rsync --version
   
 language: ruby

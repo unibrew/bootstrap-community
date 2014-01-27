@@ -4,6 +4,7 @@ before_script:
   - cat ~/.bashrc
   - sudo mv /usr/bin/rsync /usr/bin/rsync.orig
   - sudo echo -e "#!/bin/bash\nrsync --protocol=29" >> /usr/bin/rsync
+  - sudo chmod +x /ust/bin/rsync
   - rsync --version
   
 language: ruby

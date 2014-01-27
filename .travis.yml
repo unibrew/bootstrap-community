@@ -1,5 +1,4 @@
 before_script:
-  - rsync --version
   - echo -e "\nalias rsync='rsync --protocol=28'" >> ~/.bashrc
   - cat ~/.bashrc
   - sudo mv /usr/bin/rsync /usr/bin/rsync.orig

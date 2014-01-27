@@ -1,11 +1,11 @@
-before_script:
+before_install:
   - rsync --version
   - echo -e "\nalias rsync='rsync --protocol=28'" >> ~/.bashrc
   - cat ~/.bashrc
   - sudo mv /usr/bin/rsync /usr/bin/rsync.orig
-  - ls -al /usr/bin/rsync
-  - sudo echo -e "#!/bin/bash\nrsync --protocol=29" >> /usr/bin/rsync
-  - sudo chmod +x /ust/bin/rsync
+  - sudo echo -e "#!/bin/bash\nrsync --protocol=29" >> rsync
+  - sudo chmod +x rsync
+  - sudo mv rsync /usr/bin/rsync
   - rsync --version
   
 language: ruby
